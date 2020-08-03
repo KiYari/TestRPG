@@ -22,7 +22,7 @@ func _ready():
 	animationTree.active = true
 
 
-func _physics_process(delta):
+func _process(delta):
 	match state:                                                #WORK AS SWITCH-CASE
 		MOVE:
 			move_state(delta)
@@ -30,6 +30,9 @@ func _physics_process(delta):
 			pass
 		ATTACK:
 			attack_state(delta)
+
+func _physics_process(delta):
+	pass
 	
 	
 func move_state(delta):
