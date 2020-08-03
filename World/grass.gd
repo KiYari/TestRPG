@@ -1,13 +1,15 @@
 extends Node2D
 
-func _process(delta):
-	if Input.is_action_just_pressed("attack"):
-		var grassDestroyed = load("res://World/GrassDestroyed.tscn")
-		var grassdestroyed = grassDestroyed.instance()
+func create_grass_effect():
+	var grassDestroyed = load("res://World/GrassDestroyed.tscn")
+	var grassdestroyed = grassDestroyed.instance()
 		
-		var main = get_tree().current_scene
+	var main = get_tree().current_scene
 		
-		main.add_child(grassdestroyed)
-		grassdestroyed.global_position = global_position
-		
-		queue_free()
+	main.add_child(grassdestroyed)
+	grassdestroyed.global_position = global_position
+
+
+func _on_Hurtbox_area_entered(area):
+	create_grass_effect()
+	queue_free()
