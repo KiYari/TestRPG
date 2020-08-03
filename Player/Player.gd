@@ -23,7 +23,7 @@ func _ready():
 
 
 func _physics_process(delta):
-	match state:
+	match state:                                                #WORK AS SWITCH-CASE
 		MOVE:
 			move_state(delta)
 		ROLL:
