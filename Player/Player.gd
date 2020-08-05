@@ -4,6 +4,7 @@ export var ACCELERATION = 600
 export var MAX_SPEED = 90
 export var FRICTION = 500
 export var ROLL_SPEED = 105
+var stats = PlayerStats
 
 enum{
 	MOVE,
@@ -19,11 +20,14 @@ onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 onready var sword_hitbox = $HitboxPivot/SwordHitbox
+onready var hurtbox = $Hurtbox 
 
 
 func _ready():
+	stats.connect("no_health", self, "queue_free")
 	animationTree.active = true
 	sword_hitbox.knockback_vector = roll_vector
+	
 
 
 func _physics_process(delta):
@@ -82,3 +86,9 @@ func roll_animation_finished():
 	
 func attack_animation_finished():
 	state = MOVE
+
+
+func _on_Hurtbox_area_entered(area):
+	stats.health -= 1
+	hurtbox.start_invincibility(3)
+	hurtbox.create_hitEffect()

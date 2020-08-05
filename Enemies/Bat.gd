@@ -5,6 +5,7 @@ const EnemyDeathEffect = preload("res://Effects/DeathEffect.tscn")
 onready var stats = $Stats
 onready var playerDetection = $PlayerDetectionZone
 onready var sprite = $AnimatedSprite
+onready var hurtbox = $Hurtbox
 
 export var ACCELERATION = 300
 export var MAX_SPEED = 50
@@ -47,6 +48,7 @@ func _physics_process(delta):
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
 	knockback = area.knockback_vector * 117
+	hurtbox.create_hitEffect()
 	
 
 
