@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=5]
 [ext_resource path="res://World/grass.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Enemies/Bat.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://World/Tree.tscn" type="PackedScene" id=9]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -516,7 +518,7 @@ position = Vector2( 112, 40 )
 position = Vector2( 45.0339, 53.1258 )
 
 [node name="Bush2" parent="GameObjects/Bushes" instance=ExtResource( 1 )]
-position = Vector2( 186.534, 43.3866 )
+position = Vector2( 148.694, 170.783 )
 
 [node name="Bush4" parent="GameObjects/Bushes" instance=ExtResource( 1 )]
 position = Vector2( 120.524, 88.4779 )
@@ -562,11 +564,28 @@ position = Vector2( 6.82184, 79.8208 )
 [node name="Grass5" parent="GameObjects/Grass" instance=ExtResource( 6 )]
 position = Vector2( 11.4468, 71.8323 )
 
+[node name="Trees" type="YSort" parent="GameObjects"]
+
+[node name="Tree" parent="GameObjects/Trees" instance=ExtResource( 9 )]
+position = Vector2( 143.047, 120.604 )
+
+[node name="Tree2" parent="GameObjects/Trees" instance=ExtResource( 9 )]
+position = Vector2( 81.2406, 15.4918 )
+
+[node name="Tree3" parent="GameObjects/Trees" instance=ExtResource( 9 )]
+position = Vector2( 215.784, 46.1845 )
+
 [node name="Bat" parent="." instance=ExtResource( 7 )]
-position = Vector2( 29.9465, 116.4 )
+position = Vector2( 20.2762, 68.4688 )
 
 [node name="Bat2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 197.285, 157.604 )
+position = Vector2( 262.034, 143.309 )
 
 [node name="Bat3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 147.672, 28.526 )
+position = Vector2( 190.558, 33.1509 )
+
+[node name="HealthUI" parent="." instance=ExtResource( 8 )]
+margin_left = 10.8595
+margin_top = 7.68111
+margin_right = 70.8595
+margin_bottom = 19.6811
